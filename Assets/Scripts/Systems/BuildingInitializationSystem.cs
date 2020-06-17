@@ -18,18 +18,16 @@ public class BuildingInitializationSystem : JobComponentSystem
 
     protected override JobHandle OnUpdate(JobHandle inputDeps)
     {
-        var ecs = system.CreateCommandBuffer();//.ToConcurrent();
-        //var job =
-        Entities.ForEach(
+        var ecs = system.CreateCommandBuffer().ToConcurrent();
+        var job = Entities.ForEach(
             (Entity entity, int entityInQueryIndex, ref BuildingInitializationData initData) => {
                 BuildingData building = new BuildingData();
-                building.timeLeft = (counter++ % 100) * 0.1f;
-                ecs.AddComponent<BuildingData>(/*entityInQueryIndex,*/ entity, building);
-                ecs.RemoveComponent<BuildingInitializationData>(/*entityInQueryIndex,*/ entity);
-            }).WithoutBurst().Run();//Schedule(inputDeps);
+                building.timeLeft = (entityInQueryIndex % 100) * 0.1f;
+                ecs.AddComponent<BuildingData>(entityInQueryIndex, entity, building);
+                ecs.RemoveComponent<BuildingInitializationData>(entityInQueryIndex, entity);
+            }).Schedule(inputDeps);
 
-        //system.AddJobHandleForProducer(job);
-        system.AddJobHandleForProducer(inputDeps);
-        return default;//job;
+        system.AddJobHandleForProducer(job);
+        return job;
     }
 }
