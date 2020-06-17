@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Burst;
 using Unity.Collections;
 using Unity.Jobs;
 
@@ -35,6 +36,7 @@ public class Building : MonoBehaviour
         public Quaternion rotation;
     }
 
+    [BurstCompile]
     public struct UpdateJob : IJobParallelFor
     {
         public Vector3 cameraPosition;

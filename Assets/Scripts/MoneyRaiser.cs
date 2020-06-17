@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Burst;
 using Unity.Jobs;
 using Unity.Collections;
 using Unity.Mathematics;
@@ -47,6 +48,7 @@ public class MoneyRaiser : MonoBehaviour
         }
     }
 
+    [BurstCompile]
     public struct UpdateJob : IJobParallelFor
     {
         public float deltaTime;
