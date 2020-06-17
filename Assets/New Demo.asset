@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0dbffe5bc52f9d4692b3859f9c5a847, type: 3}
+  m_Name: New Demo
+  m_EditorClassIdentifier: 
+  healthBoxIcon: {fileID: 8082421607346535631, guid: 74a2cee6e5bb8614dad256c788994f01,
+    type: 3}
+  knifeIcon: {fileID: 6249328642684416483, guid: 50715c9e5dc3bf245b56498415aa5337,
+    type: 3}
